@@ -207,21 +207,21 @@ export default function Sidebar(){
                         <Item 
                             title="Pie Chart"
                             to="/pie"
-                            icon={<HelpOutlinedIcon/>}
+                            icon={<PieChartOutlineOutlinedIcon/>}
                             selected={selected}
                             setSelected={setSelected}
                         />
                         <Item 
                             title="Line Chart"
                             to="/line"
-                            icon={<HelpOutlinedIcon/>}
+                            icon={<TimelineOutlinedIcon/>}
                             selected={selected}
                             setSelected={setSelected}
                         />
                         <Item 
                             title="Geography Chart"
                             to="/geography"
-                            icon={<HelpOutlinedIcon/>}
+                            icon={<MapOutlinedIcon/>}
                             selected={selected}
                             setSelected={setSelected}
                         />
