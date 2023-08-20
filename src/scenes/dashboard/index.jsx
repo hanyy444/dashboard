@@ -1,4 +1,4 @@
-import { Box, Button, Icon, IconButton, Typography, useTheme } from "@mui/material"
+import { Box, Button, IconButton, Typography, useMediaQuery, useTheme } from "@mui/material"
 import { tokens } from "../../theme"
 import Header from "../../components/Header"
 import { mockTransactions } from '../../data/mockData'
@@ -9,18 +9,24 @@ import PersonAddIcon from '@mui/icons-material/PersonAdd';
 import TrafficIcon from '@mui/icons-material/Traffic';
 import LineChart from '../../components/LineChart'
 import BarChart from '../../components/BarChart'
-import PieChart from '../../components/PieChart'
 import GeographyChart from '../../components/GeographyChart'
 import StatBox from "../../components/StatBox";
 import ProgressCircle from "../../components/ProgressCircle";
 
 export default function Dashboard(){
+    const isPhone = useMediaQuery('(max-width: 950px)');
     const theme = useTheme()
     const colors = tokens(theme.palette.mode)
 
-    return <Box m="20px">
+    return <Box m="20px" sx={{ height: '100%', padding: "0 0 100px 0", overflowY: 'scroll' }}>
         {/* HEADER */}
-        <Box display="flex" justifyContent="space-between" alignItems="center">
+        <Box 
+            display="flex" 
+            justifyContent="space-between" 
+            alignItems="center" 
+            flexDirection={isPhone ? "column" : "row"}
+            margin="1rem"
+        >
             <Header title="Dashboard" subtitle="Welcome to your dashboard"/>
         
             <Box>
@@ -43,12 +49,12 @@ export default function Dashboard(){
         <Box 
             display="grid" 
             gridTemplateColumns="repeat(12, 1fr)" 
-            gridAutoRows="140px" 
+            gridAutoRows="150px" 
             gap="20px"
         >
             {/* ROW 1 */}
             <Box 
-                gridColumn="span 3"
+                gridColumn={isPhone ? "span 12" : "span 3"}
                 backgroundColor={colors.primary[400]}
                 display="flex"
                 alignItems="center"
@@ -67,7 +73,7 @@ export default function Dashboard(){
                 />
             </Box>
             <Box 
-                gridColumn="span 3"
+                gridColumn={isPhone ? "span 12" : "span 3"}
                 backgroundColor={colors.primary[400]}
                 display="flex"
                 alignItems="center"
@@ -86,7 +92,7 @@ export default function Dashboard(){
                 />
             </Box>
             <Box 
-                gridColumn="span 3"
+                gridColumn={isPhone ? "span 12" : "span 3"}
                 backgroundColor={colors.primary[400]}
                 display="flex"
                 alignItems="center"
@@ -105,7 +111,7 @@ export default function Dashboard(){
                 />
             </Box>
             <Box 
-                gridColumn="span 3"
+                gridColumn={isPhone ? "span 12" : "span 3"}
                 backgroundColor={colors.primary[400]}
                 display="flex"
                 alignItems="center"
@@ -126,7 +132,7 @@ export default function Dashboard(){
 
             {/* ROW 2 */}
             <Box
-                gridColumn="span 8"
+                gridColumn={isPhone ? "span 12" : "span 8"}
                 gridRow="span 2"
                 backgroundColor={colors.primary[400]}
             >
@@ -159,7 +165,7 @@ export default function Dashboard(){
                 </Box>
             </Box>
             {/* TRANSACTIONS */}
-            <Box gridColumn="span 4" gridRow="span 2" backgroundColor={colors.primary[400]} overflow="auto">
+            <Box gridColumn={isPhone ? "span 12" : "span 4"} gridRow="span 2" backgroundColor={colors.primary[400]} overflow="auto">
                 <Box
                     display="flex"
                     justifyContent="space-between"
@@ -211,7 +217,7 @@ export default function Dashboard(){
 
             {/* ROW 3 */}
             <Box
-                gridColumn="span 4"
+                gridColumn={isPhone ? "span 12" : "span 4"}
                 gridRow="span 2"
                 backgroundColor={colors.primary[400]}
                 p="30px"
@@ -232,7 +238,7 @@ export default function Dashboard(){
                 </Box>
             </Box>
             <Box
-                gridColumn="span 4"
+                gridColumn={isPhone ? "span 12" : "span 4"}
                 gridRow="span 2"
                 backgroundColor={colors.primary[400]}
             >
@@ -244,7 +250,7 @@ export default function Dashboard(){
                 </Box>
             </Box>
             <Box
-                gridColumn="span 4"
+                gridColumn={isPhone ? "span 12" : "span 4"}
                 gridRow="span 2"
                 backgroundColor={colors.primary[400]}
                 p="30px"
@@ -256,7 +262,6 @@ export default function Dashboard(){
                     <GeographyChart isDashboard={true}/>
                 </Box>
             </Box>
-
         </Box>
     </Box>
 }

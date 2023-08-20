@@ -5,6 +5,7 @@ import 'react-pro-sidebar/dist/css/styles.css'
 import { Box, IconButton, Typography, useTheme } from '@mui/material'
 import { Link } from 'react-router-dom'
 import { tokens } from '../../theme'
+
 import userPhoto from '../../assets/user.jpg'
 
 import HomeOutlinedIcon from '@mui/icons-material/HomeOutlined'
@@ -44,6 +45,7 @@ export default function Sidebar(){
     return (
         <Box 
             sx={{
+                height: '100%',
                 "& .pro-sidebar-inner": {
                     background: `${colors.primary[400]} !important`
                 },
@@ -162,7 +164,7 @@ export default function Sidebar(){
                             selected={selected}
                             setSelected={setSelected}
                         />
-                                          <Typography
+                        <Typography
                             variant='h6'
                             color={colors.grey[300]}
                             sx={{ m: "15px 0 5px 20px"}}
@@ -190,7 +192,7 @@ export default function Sidebar(){
                             selected={selected}
                             setSelected={setSelected}
                         />
-                                          <Typography
+                        <Typography
                             variant='h6'
                             color={colors.grey[300]}
                             sx={{ m: "15px 0 5px 20px"}}
